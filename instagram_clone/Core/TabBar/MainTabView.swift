@@ -13,7 +13,7 @@ struct MainTabView: View {
         {
             Tab("Feed"  , systemImage: "house" )
             {
-                Text("Feed")
+                FeedView()
             }
             
             Tab("Search"  , systemImage: "magnifyingglass" )
@@ -33,7 +33,7 @@ struct MainTabView: View {
             
             Tab("Profile"  , systemImage: "person" )
             {
-                Text("Profile")
+              ProfileView()
             }
         }
         .tint(.black)
