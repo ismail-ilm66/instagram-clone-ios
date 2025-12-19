@@ -18,7 +18,7 @@ struct MainTabView: View {
             
             Tab("Search"  , systemImage: "magnifyingglass" )
             {
-                Text("Search")
+                SearchView()
             }
             
             Tab("Upload Post"  , systemImage: "plus.square" )
