@@ -1,0 +1,76 @@
+//
+//  CreatePasswordView.swift
+//  instagram_clone
+//
+//  Created by Dev on 24/12/2025.
+//
+
+import SwiftUI
+
+struct CreatePasswordView: View {
+    @State var passwordText : String = ""
+    @Environment(\.dismiss) var dismiss
+    var body: some View {
+     
+            VStack(spacing:12)
+            {
+                Text("Create Password")
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .padding(.top)
+                
+                Text("Your Password must be of atleast 6 characters in length")
+                    .font(.footnote)
+                    .foregroundStyle(.gray)
+                    .multilineTextAlignment(.center)
+                
+                
+                SecureField("Password", text: $passwordText)
+                    .textInputAutocapitalization(.none)
+                
+                    .modifier(IGTextFieldModifier())
+                
+                
+                
+                NavigationLink
+                {
+                    CompleteSignUpView()
+                        .navigationBarBackButtonHidden()
+                    
+                } label:
+                {
+                    Text("Next")
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .frame(width: 360, height: 44)
+                        .background(Color(.systemBlue))
+                        .cornerRadius(10)
+                        .padding(.top,8)
+                        .padding(.bottom,24)
+                }
+                
+                Spacer()
+                
+            }
+          
+        
+        .padding(.horizontal,24)
+        .toolbar
+        {
+            ToolbarItem( placement: .topBarLeading)
+            {
+                Image(systemName: "chevron.left")
+                    .imageScale(.large)
+                    
+                    .onTapGesture {
+                        dismiss()
+                    }
+            }
+        }
+    }
+}
+
+#Preview {
+    CreatePasswordView()
+}
