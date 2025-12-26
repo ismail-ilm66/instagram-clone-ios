@@ -12,128 +12,132 @@ struct LoginView: View {
     @State var passwordText : String = ""
 
     var body: some View {
-        VStack()
-        {
-            Spacer()
-            // Instagram Logo:
-            Image("instagram-text-icon")
-                .resizable()
-                .scaledToFill()
-                .frame(width: 220,height: 100)
-            
-            //Email Field:
-            
-            TextField("Email", text: $emailText)
-                .textInputAutocapitalization(.none)
-                .font(.subheadline)
-                .padding(12)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-
-            
-            
-            //Password Field:
-            
-            SecureField("Password", text: $passwordText)
-                .textInputAutocapitalization(.none)
-                .font(.subheadline)
-                .padding(12)
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-            
-            //Forgot Password Text
-            
-            Text("Forgot Password?" )
-                .font(.system(size: 14) )
-                .fontWeight(.semibold)
-                .foregroundColor(.blue)
-                .frame(maxWidth: .infinity , alignment: .trailing)
-                .padding(.top,8)
-                .onTapGesture {
+        NavigationStack {
+            VStack
+            {
+                Spacer()
+                // Instagram Logo:
+                Image("instagram-text-icon")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 220,height: 100)
+                
+                //Email Field:
+                
+                TextField("Email", text: $emailText)
+                    .textInputAutocapitalization(.none)
+                    .modifier(IGTextFieldModifier())
+                
+                
+                
+                //Password Field:
+                
+                SecureField("Password", text: $passwordText)
+                    .textInputAutocapitalization(.none)
+                    .modifier(IGTextFieldModifier())
+                
+                //Forgot Password Text
+                
+                Text("Forgot Password?" )
+                    .font(.system(size: 14) )
+                    .fontWeight(.semibold)
+                    .foregroundColor(.blue)
+                    .frame(maxWidth: .infinity , alignment: .trailing)
+                    .padding(.top,8)
+                    .onTapGesture {
+                        
+                    }
+                
+                
+                
+                //Login Button:
+                
+                Button
+                {
+                    
+                } label:
+                {
+                    Text("Login")
+                        .foregroundColor(.white)
+                        .font(.subheadline)
+                        .fontWeight(.semibold)
+                        .frame(width: 360, height: 44)
+                        .background(Color(.systemBlue))
+                        .cornerRadius(10)
+                    
+                    
+                    
+                    
+                        .padding(.top,8)
+                        .padding(.bottom,24)
+                }
+                
+                
+                //Or Text:
+                HStack {
+                    Rectangle()
+                        .frame(width: .infinity, height: 0.5)
+                    
+                    
+                    Text("OR")
+                        .font(.footnote)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal, 2)
+                    
+                    Rectangle()
+                        .frame(width: .infinity , height: 0.5)
+                    
+                }
+                .foregroundColor(.gray)
+                
+                //Continue With Facebook:
+                
+                HStack
+                {
+                    Image("fb-icon")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                    
+                    Text("Continue with Facebook")
+                        .font(.footnote)
+                        .foregroundColor(Color(.systemBlue))
+                        .fontWeight(.semibold)
+                    
+                }
+                
+                //Don't Have An Account Sign Up:
+                
+                Spacer()
+                
+                NavigationLink
+                {
+//                    Text("Signup")
+                    AddEmailView()
+                        .navigationBarBackButtonHidden(true)
+                } label:
+                {
+                    
+                    HStack{
+                        
+                        
+                        
+                        Text("Don't Have An Account?")
+                        
+                            .foregroundColor(Color(.systemBlue))
+                        + Text(" Signup")
+                        
+                            .foregroundColor(Color(.systemBlue))
+                            .fontWeight(.bold)
+                    }
+                    .font(.footnote)
                     
                 }
                 
                 
-            
-            //Login Button:
-            
-            Button
-            {
                 
-            } label:
-            {
-                Text("Login")
-                    .foregroundColor(.white)
-                    .font(.subheadline)
-                    .fontWeight(.semibold)
-                    .frame(width: 360, height: 44)
-                    .background(Color(.systemBlue))
-                    .cornerRadius(10)
-                    
-                    
-                    
-                    
-                    .padding(.top,8)
-                    .padding(.bottom,24)
             }
-         
-            
-            //Or Text:
-            HStack {
-               Rectangle()
-                    .frame(width: .infinity, height: 0.5)
-         
-                    
-                Text("OR")
-                    .font(.footnote)
-                    .fontWeight(.semibold)
-                    .padding(.horizontal, 2)
-                
-                Rectangle()
-                    .frame(width: .infinity , height: 0.5)
-                   
-            }
-            .foregroundColor(.gray)
-            
-            //Continue With Facebook:
-            
-            HStack
-            {
-                Image("fb-icon")
-                    .resizable()
-                    .frame(width: 20, height: 20)
-                
-                Text("Continue with Facebook")
-                    .font(.footnote)
-                    .foregroundColor(Color(.systemBlue))
-                    .fontWeight(.semibold)
-                    
-            }
-            
-            //Don't Have An Account Sign Up:
-            
-            Spacer()
-        
-            
-            HStack{
-                
-               
-                
-                Text("Don't Have An Account?")
-                 
-                    .foregroundColor(Color(.systemBlue))
-                 + Text(" Signup")
-                    
-                    .foregroundColor(Color(.systemBlue))
-                    .fontWeight(.bold)
-            }
-            .font(.footnote)
-            .onTapGesture {
-                print("Singup Clicked")
-            }
-            
+            .padding(.all, 24)
         }
-        .padding(.all, 24)
         
     }
 }
