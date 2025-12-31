@@ -1,16 +1,13 @@
 //
-//  ProfileView.swift
+//  CurrentUserProfile.swift
 //  instagram_clone
 //
-//  Created by Dev on 15/12/2025.
+//  Created by Dev on 26/12/2025.
 //
 
 import SwiftUI
 
-struct ProfileView: View
-{
-    
-    let user: User
+struct CurrentUserProfileView: View {
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 2),
         .init(.flexible(), spacing: 2),
@@ -19,7 +16,7 @@ struct ProfileView: View
     
     var body: some View
     {
-        
+        NavigationStack {
             ScrollView{
                 VStack
                 {
@@ -32,7 +29,7 @@ struct ProfileView: View
                         // Image and Follower/Following etc.
                         HStack
                         {
-                            Image(user.profilePicture ?? "")
+                            Image("john")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 80, height: 80)
@@ -55,11 +52,11 @@ struct ProfileView: View
                         // Name and Bio
                         VStack(alignment: .leading)
                         {
-                            Text(user.fullName ?? "")
+                            Text("Sherlock Holmes")
                                 .font(.footnote)
                                 .fontWeight(.semibold)
                             
-                            Text(user.bio ?? "")
+                            Text("I am a high functioning Sociopath")
                                 .font(.footnote)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -68,7 +65,7 @@ struct ProfileView: View
                         // Edit Profile Button
                         Button
                         {} label: {
-                            Text("Follow")
+                            Text("Edit Profile")
                                 .font(.subheadline)
                                 .fontWeight(.semibold)
                                 .frame(width: 360, height: 32)
@@ -117,12 +114,11 @@ struct ProfileView: View
                 }
                 
             }
-        
+        }
         
     }
 }
 
-#Preview
-{
-    ProfileView(user: User.MOCK_USERS[0])
+#Preview {
+    CurrentUserProfileView()
 }
