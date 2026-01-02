@@ -1,38 +1,43 @@
 //
-//  AddEmailView.swift
+//  CreateUsernameView.swift
 //  instagram_clone
 //
-//  Created by Dev on 22/12/2025.
+//  Created by Dev on 24/12/2025.
 //
 
 import SwiftUI
 
-struct AddEmailView: View {
-    
-    @State var emailText : String = ""
+struct CreateUsernameView: View {
+    @EnvironmentObject var registerViewModel: RegisterViewModel
     @Environment(\.dismiss) var dismiss
     var body: some View {
      
             VStack(spacing:12)
             {
-                Text("Add your email")
+                Text("Add your username")
                     .font(.title2)
                     .fontWeight(.bold)
                     .padding(.top)
                 
-                Text("You'll use this email to sign in to your account")
+                Text("Pick a username for your account. You can always change it later")
                     .font(.footnote)
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
                 
                 
-                TextField("Email", text: $emailText)
-                    .textInputAutocapitalization(.none)
+                TextField("Username", text: $registerViewModel.username)
+                    .textInputAutocapitalization(.never)
                     .modifier(IGTextFieldModifier())
                 
-                NavigationLink{
-                    CreateUsernameView()
-                        .navigationBarBackButtonHidden(true)
+                
+                
+                NavigationLink
+                {
+                    
+                    CreatePasswordView()
+                        .navigationBarBackButtonHidden()
+                    
+                    
                     
                 } label:
                 {
@@ -46,10 +51,6 @@ struct AddEmailView: View {
                         .padding(.top,8)
                         .padding(.bottom,24)
                 }
-                
-                
-                
-//
                 
                 Spacer()
                 
@@ -73,5 +74,5 @@ struct AddEmailView: View {
 }
 
 #Preview {
-    AddEmailView()
+    CreateUsernameView()
 }
