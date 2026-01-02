@@ -10,6 +10,7 @@ import SwiftUI
 struct LoginView: View {
     @State var emailText : String = ""
     @State var passwordText : String = ""
+    
 
     var body: some View {
         NavigationStack {
@@ -113,6 +114,7 @@ struct LoginView: View {
                 {
 //                    Text("Signup")
                     AddEmailView()
+                  
                         .navigationBarBackButtonHidden(true)
                 } label:
                 {
