@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct LoginView: View {
-    @State var emailText : String = ""
-    @State var passwordText : String = ""
+
+    
+    @StateObject var loginViewModel: LoginViewModel = LoginViewModel()
     
 
     var body: some View {
@@ -25,16 +26,16 @@ struct LoginView: View {
                 
                 //Email Field:
                 
-                TextField("Email", text: $emailText)
-                    .textInputAutocapitalization(.none)
+                TextField("Email", text: $loginViewModel.emailText)
+                    .textInputAutocapitalization(.never)
                     .modifier(IGTextFieldModifier())
                 
                 
                 
                 //Password Field:
                 
-                SecureField("Password", text: $passwordText)
-                    .textInputAutocapitalization(.none)
+                SecureField("Password", text: $loginViewModel.passwordText)
+                    .textInputAutocapitalization(.never)
                     .modifier(IGTextFieldModifier())
                 
                 //Forgot Password Text
@@ -55,7 +56,7 @@ struct LoginView: View {
                 
                 Button
                 {
-                    
+                    Task { try await loginViewModel.login()}
                 } label:
                 {
                     Text("Login")
@@ -66,18 +67,21 @@ struct LoginView: View {
                         .background(Color(.systemBlue))
                         .cornerRadius(10)
                     
-                    
-                    
+                
                     
                         .padding(.top,8)
                         .padding(.bottom,24)
                 }
+                .disabled(loginViewModel.isLoading)
+                
+
                 
                 
                 //Or Text:
                 HStack {
                     Rectangle()
-                        .frame(width: .infinity, height: 0.5)
+                        .frame(maxWidth: .infinity)
+                        .frame( height: 0.5)
                     
                     
                     Text("OR")
@@ -86,7 +90,8 @@ struct LoginView: View {
                         .padding(.horizontal, 2)
                     
                     Rectangle()
-                        .frame(width: .infinity , height: 0.5)
+                        .frame(maxWidth: .infinity  )
+                        .frame(height: 0.5)
                     
                 }
                 .foregroundColor(.gray)

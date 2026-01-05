@@ -27,7 +27,7 @@ struct FeedCell: View {
                     .fontWeight(.semibold)
                    
             }
-            .frame(width: .infinity , alignment: .leading)
+            .frame(maxWidth: .infinity , alignment: .leading)
             .padding(.horizontal , 8)
             
             // Post Image
@@ -35,7 +35,9 @@ struct FeedCell: View {
             Image("sherlock")
                 .resizable()
                 .scaledToFill()
-                .frame(width: .infinity, height: 400)
+                .frame(maxWidth: .infinity,)
+                .frame( height: 400)
+
                 .clipShape(Rectangle())
                 .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
               
