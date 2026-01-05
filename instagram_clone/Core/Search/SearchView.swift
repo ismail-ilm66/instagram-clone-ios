@@ -34,7 +34,7 @@ struct SearchView: View {
                                 }
                              }
                             .foregroundColor(.black)
-                            .frame(width: .infinity, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.horizontal, 16)
                         }
                     }

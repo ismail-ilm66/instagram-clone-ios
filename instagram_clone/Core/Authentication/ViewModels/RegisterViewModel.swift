@@ -28,4 +28,9 @@ class RegisterViewModel : ObservableObject
                    throw error 
         }
     }
+    
+    func signOut ()
+    {
+        
+    }
 }

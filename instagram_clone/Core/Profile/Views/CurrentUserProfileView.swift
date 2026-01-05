@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct CurrentUserProfileView: View {
+    
+    @StateObject var currentUserProfileViewModel: CurrentProfileViewModel = CurrentProfileViewModel()
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 2),
         .init(.flexible(), spacing: 2),
@@ -104,7 +106,7 @@ struct CurrentUserProfileView: View {
                 {
                     Button
                     {
-                        
+                        currentUserProfileViewModel.signOut()
                     } label:
                     {
                         Image(systemName: "line.3.horizontal")
