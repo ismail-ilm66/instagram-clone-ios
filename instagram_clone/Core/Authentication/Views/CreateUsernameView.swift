@@ -24,6 +24,12 @@ struct CreateUsernameView: View {
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
                 
+                if let error = registerViewModel.usernameError {
+                              Text(error)
+                                  .font(.footnote)
+                                  .foregroundColor(.red)
+                                  .frame(maxWidth: .infinity, alignment: .leading)
+                          }
                 
                 TextField("Username", text: $registerViewModel.username)
                     .textInputAutocapitalization(.never)
@@ -51,6 +57,7 @@ struct CreateUsernameView: View {
                         .padding(.top,8)
                         .padding(.bottom,24)
                 }
+                .disabled(!registerViewModel.isUsernameValid)
                 
                 Spacer()
                 
