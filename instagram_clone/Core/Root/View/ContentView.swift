@@ -20,11 +20,12 @@ struct ContentView: View {
                 LoginView()
                     .environmentObject(registerViewModel)
             }
-            else
+            else if let currentUser = contentViewModel.currentUser
             {
-                MainTabView()
+                MainTabView(currentUser: currentUser)
                 
             }
+           
         }
     }
 }

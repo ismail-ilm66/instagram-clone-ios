@@ -14,7 +14,7 @@ class LoginViewModel: ObservableObject
     @Published var passwordText : String = ""
     @Published var isLoading: Bool = false
     
-    
+    @MainActor
     func login() async throws
     {
         do

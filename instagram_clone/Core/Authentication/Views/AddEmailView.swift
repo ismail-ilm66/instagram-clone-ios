@@ -26,6 +26,13 @@ struct AddEmailView: View {
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
                 
+                if let error = registerViewModel.emailError {
+                              Text(error)
+                                  .font(.footnote)
+                                  .foregroundColor(.red)
+                                  .frame(maxWidth: .infinity, alignment: .leading)
+                          }
+                
                 
                 TextField("Email", text: $registerViewModel.email)
                     .textInputAutocapitalization(.never)
@@ -47,6 +54,7 @@ struct AddEmailView: View {
                         .padding(.top,8)
                         .padding(.bottom,24)
                 }
+                .disabled(!registerViewModel.isEmailValid)
                 
                 
                 

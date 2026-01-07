@@ -25,6 +25,13 @@ struct CreatePasswordView: View {
                     .foregroundStyle(.gray)
                     .multilineTextAlignment(.center)
                 
+                if let error = registerViewModel.passwordError {
+                              Text(error)
+                                  .font(.footnote)
+                                  .foregroundColor(.red)
+                                  .frame(maxWidth: .infinity, alignment: .leading)
+                          }
+                
                 
                 SecureField("Password", text: $registerViewModel.password)
                     .textInputAutocapitalization(.never)
@@ -50,6 +57,7 @@ struct CreatePasswordView: View {
                         .padding(.top,8)
                         .padding(.bottom,24)
                 }
+                .disabled(!registerViewModel.isPasswordValid)
                 
                 Spacer()
                 

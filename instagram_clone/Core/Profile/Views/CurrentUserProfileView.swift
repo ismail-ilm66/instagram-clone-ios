@@ -9,6 +9,8 @@ import SwiftUI
 
 struct CurrentUserProfileView: View {
     
+    var currentUser: User
+    
     @StateObject var currentUserProfileViewModel: CurrentProfileViewModel = CurrentProfileViewModel()
     private let gridItems: [GridItem] = [
         .init(.flexible(), spacing: 2),
@@ -54,12 +56,15 @@ struct CurrentUserProfileView: View {
                         // Name and Bio
                         VStack(alignment: .leading)
                         {
-                            Text("Sherlock Holmes")
+                            Text(currentUser.username)
                                 .font(.footnote)
                                 .fontWeight(.semibold)
                             
-                            Text("I am a high functioning Sociopath")
-                                .font(.footnote)
+                           if let bio = currentUser.bio
+                            {
+                               Text(bio)
+                                   .font(.footnote)
+                           }
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -122,5 +127,5 @@ struct CurrentUserProfileView: View {
 }
 
 #Preview {
-    CurrentUserProfileView()
+    CurrentUserProfileView(currentUser: User.MOCK_USERS[0])
 }
