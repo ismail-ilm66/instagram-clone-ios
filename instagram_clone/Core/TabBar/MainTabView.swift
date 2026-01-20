@@ -48,6 +48,7 @@ struct MainTabView: View {
                    
             }
         }
+         
         .tint(.black)
         .labelStyle(.iconOnly)
 
