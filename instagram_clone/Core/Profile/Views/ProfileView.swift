@@ -25,65 +25,7 @@ struct ProfileView: View
                 {
                     // Header:
                     
-                    VStack(spacing: 10)
-                    {
-                        // App Bar
-                        
-                        // Image and Follower/Following etc.
-                        HStack
-                        {
-                            Image(user.profilePicture ?? "")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 80, height: 80)
-                                .clipShape(.circle)
-                            
-                            Spacer()
-                            // Posts
-                            UserStatView(title: "Posts", numbers: 3)
-                            // Followers
-                            Spacer()
-                            
-                            UserStatView(title: "Followers", numbers: 3)
-                            
-                            Spacer()
-                            UserStatView(title: "Following", numbers: 3)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                        
-                        // Name and Bio
-                        VStack(alignment: .leading)
-                        {
-                            Text(user.fullName ?? "")
-                                .font(.footnote)
-                                .fontWeight(.semibold)
-                            
-                            Text(user.bio ?? "")
-                                .font(.footnote)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .padding(.horizontal)
-                        
-                        // Edit Profile Button
-                        Button
-                        {} label: {
-                            Text("Follow")
-                                .font(.subheadline)
-                                .fontWeight(.semibold)
-                                .frame(width: 360, height: 32)
-                                .foregroundColor(.black)
-                                .overlay(
-                                    RoundedRectangle(cornerRadius: 6.0)
-                                        .stroke(Color.gray, lineWidth: 1)
-                                )
-                        }
-                        
-                        // Divider
-                        
-                        Divider()
-                    }
-                    
+                  ProfileHeaderView(user: user)
                     // Grid View Of Images:
                     
                     LazyVGrid(columns: gridItems, spacing: 2)

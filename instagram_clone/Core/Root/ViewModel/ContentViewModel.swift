@@ -10,7 +10,7 @@ import FirebaseAuth
 import Combine
 
 
-
+@MainActor
 class ContentViewModel : ObservableObject
 {
     
@@ -26,13 +26,16 @@ class ContentViewModel : ObservableObject
         
     }
     
+    
     private func setupSubscribers() {
          service.$userSession
+             .receive(on: DispatchQueue.main)
              .sink { [weak self] userSession in
                  self?.userSession = userSession
              }
              .store(in: &cancellables)
         service.$currentUser
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] currentUser in
                 self?.currentUser = currentUser
             }

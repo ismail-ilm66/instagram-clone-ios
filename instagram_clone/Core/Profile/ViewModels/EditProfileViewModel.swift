@@ -1,8 +1,8 @@
 //
-//  UploadPostViewModel.swift
+//  EditProfileViewModel.swift
 //  instagram_clone
 //
-//  Created by Dev on 31/12/2025.
+//  Created by Dev on 20/01/2026.
 //
 
 import Foundation
@@ -10,14 +10,18 @@ import PhotosUI
 import SwiftUI
 
 
-class UploadPostViewModel : ObservableObject
+
+class EditProfileViewModel : ObservableObject
 {
+    @Published var name: String = ""
+    @Published var bio: String = ""
+    
     @Published var selectedImage: PhotosPickerItem?
     {
         didSet { Task { await loadImage (fromItem: selectedImage) } }
     }
     
-    @Published var postImage: Image?
+    @Published var profileImage: Image?
     
     @MainActor
     func loadImage (fromItem item: PhotosPickerItem?) async
@@ -28,14 +32,14 @@ class UploadPostViewModel : ObservableObject
         
         guard let uiImage = UIImage(data: data) else { return}
         
-        self.postImage = Image(uiImage: uiImage)
+        self.profileImage = Image(uiImage: uiImage)
         
     }
     
     func clearValues ()
     {
         selectedImage = nil
-        postImage = nil
+        profileImage = nil
         
     }
 }
