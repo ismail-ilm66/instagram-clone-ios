@@ -8,13 +8,22 @@
 import Foundation
 import PhotosUI
 import SwiftUI
+import FirebaseFirestore
 
 
 
 class EditProfileViewModel : ObservableObject
 {
+    
+    @Published var user: User
     @Published var name: String = ""
     @Published var bio: String = ""
+    private var uiImage: UIImage?
+    
+    init(user: User,) {
+        self.user = user
+
+    }
     
     @Published var selectedImage: PhotosPickerItem?
     {
@@ -32,9 +41,13 @@ class EditProfileViewModel : ObservableObject
         
         guard let uiImage = UIImage(data: data) else { return}
         
+        self.uiImage = uiImage
+        
         self.profileImage = Image(uiImage: uiImage)
         
     }
+    
+    
     
     func clearValues ()
     {
@@ -42,4 +55,30 @@ class EditProfileViewModel : ObservableObject
         profileImage = nil
         
     }
+    
+    func updateUser () async throws
+    {
+        var data = [String: Any]()
+        if !name.isEmpty && user.fullName != name
+        {
+            data["fullname"] = name
+            
+        }
+        if !bio.isEmpty && user.bio != bio
+        {
+            data["bio"] = bio
+        }
+        if let uiImage = uiImage
+        {
+            print("Adding the image:")
+          let imageUrl = try? await  ImageUploader.uploadImage(image: uiImage)
+        data["profileImageUrl"] = imageUrl
+        }
+        if !data.isEmpty
+        {
+            try await Firestore.firestore().collection("users").document(user.id).updateData(data)
+        }
+    }
+    
+    
 }
