@@ -12,7 +12,15 @@ struct EditProfileView: View {
     
     @Environment(\.dismiss) var dismiss
     
-    @StateObject private var editProfileViewModel: EditProfileViewModel = EditProfileViewModel()
+    @StateObject private var editProfileViewModel: EditProfileViewModel
+    
+    
+    
+    init(user:User)
+    {
+        self._editProfileViewModel = StateObject(wrappedValue: EditProfileViewModel(user:user))
+        
+    }
     
     
     var body: some View {
@@ -35,7 +43,7 @@ struct EditProfileView: View {
                 Spacer()
                 
                 Button{
-                    
+                    Task { try? await  editProfileViewModel.updateUser()}
                 } label:{
                     Text("Done")
                         .font(.subheadline)
@@ -130,5 +138,5 @@ struct EditProfileRowView : View {
 }
 
 #Preview {
-    EditProfileView()
+    EditProfileView(user: User.MOCK_USERS[0])
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D78E8C692F237E9C0087225D /* Cloudinary in Frameworks */ = {isa = PBXBuildFile; productRef = D78E8C682F237E9C0087225D /* Cloudinary */; };
 		D7E3FED62F0534AC003727A5 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D7E3FED52F0534AC003727A5 /* FirebaseAuth */; };
 		D7E3FED82F0534AC003727A5 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D7E3FED72F0534AC003727A5 /* FirebaseFirestore */; };
 		D7E3FEDA2F0534AC003727A5 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D7E3FED92F0534AC003727A5 /* FirebaseStorage */; };
@@ -35,9 +36,22 @@
 		D7BFA3122EE9BF4C00647871 /* instagram_cloneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = instagram_cloneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		D7ECFB3F2F27442F00922B4C /* Exceptions for "instagram_clone" folder in "instagram_clone" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"instagram-clone-Info.plist",
+			);
+			target = D7BFA2FA2EE9BF4700647871 /* instagram_clone */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		D7BFA2FD2EE9BF4700647871 /* instagram_clone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				D7ECFB3F2F27442F00922B4C /* Exceptions for "instagram_clone" folder in "instagram_clone" target */,
+			);
 			path = instagram_clone;
 			sourceTree = "<group>";
 		};
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D78E8C692F237E9C0087225D /* Cloudinary in Frameworks */,
 				D7E3FED62F0534AC003727A5 /* FirebaseAuth in Frameworks */,
 				D7E3FED82F0534AC003727A5 /* FirebaseFirestore in Frameworks */,
 				D7E3FEDA2F0534AC003727A5 /* FirebaseStorage in Frameworks */,
@@ -124,6 +139,7 @@
 				D7E3FED52F0534AC003727A5 /* FirebaseAuth */,
 				D7E3FED72F0534AC003727A5 /* FirebaseFirestore */,
 				D7E3FED92F0534AC003727A5 /* FirebaseStorage */,
+				D78E8C682F237E9C0087225D /* Cloudinary */,
 			);
 			productName = instagram_clone;
 			productReference = D7BFA2FB2EE9BF4700647871 /* instagram_clone.app */;
@@ -209,6 +225,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				D7E3FED42F0534AC003727A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D78E8C672F237E9C0087225D /* XCRemoteSwiftPackageReference "cloudinary_ios" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D7BFA2FC2EE9BF4700647871 /* Products */;
@@ -286,6 +303,8 @@
 /* Begin XCBuildConfiguration section */
 		D7BFA31A2EE9BF4C00647871 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D7BFA2FD2EE9BF4700647871 /* instagram_clone */;
+			baseConfigurationReferenceRelativePath = Secrets/Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -349,6 +368,8 @@
 		};
 		D7BFA31B2EE9BF4C00647871 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D7BFA2FD2EE9BF4700647871 /* instagram_clone */;
+			baseConfigurationReferenceRelativePath = Secrets/Secrets.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -405,6 +426,8 @@
 		};
 		D7BFA31D2EE9BF4C00647871 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = D7BFA2FD2EE9BF4700647871 /* instagram_clone */;
+			baseConfigurationReferenceRelativePath = Secrets/Secrets.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -412,6 +435,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "instagram-clone-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -439,6 +463,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "instagram-clone-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -567,6 +592,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D78E8C672F237E9C0087225D /* XCRemoteSwiftPackageReference "cloudinary_ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cloudinary/cloudinary_ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.5;
+			};
+		};
 		D7E3FED42F0534AC003727A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -578,6 +611,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D78E8C682F237E9C0087225D /* Cloudinary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D78E8C672F237E9C0087225D /* XCRemoteSwiftPackageReference "cloudinary_ios" */;
+			productName = Cloudinary;
+		};
 		D7E3FED52F0534AC003727A5 /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D7E3FED42F0534AC003727A5 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
